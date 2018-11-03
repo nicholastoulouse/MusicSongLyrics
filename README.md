@@ -21,7 +21,7 @@ For users who aim to sing more in their domestic life, the app aims to pair arti
 - Consuming Youtube API
 - API key administration
 
-# Coding Requirements\
+# Coding Requirements
 - Must use at least two APIs (must be client-side and allow CORS)
 - Must use AJAX to pull data
 - Must utilize a new library or technology that we haven't discussed
