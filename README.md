@@ -1,8 +1,5 @@
-# Nick's Project Description: Walking Tours in San Francisco
-Our client San Francisco city guides is requesting a site redesign of their page: http://www.sfcityguides.org/descriptions_table.html
-They would like to see a single page responsive website that outlines the neighborhoods of San Francisco, offers a single resource to inspire 
-residents and tourists, that provides starting points for walks to improvise from that highlight historical themes about San Francisco and show
-the diversity of ethnicities, neighborhoods, as well as the beauty of the victorian architecture.
+# Project Description: Music, Song, and Lyrics
+For users who aim to sing more in their domestic life, the app aims to pair artist and song to retrieve music lyrics and a video to encourage users with inspiration to sing along. The app enables users to store favorites in storage in order to create playlists.
 
 # Technologies
 - HTML5
@@ -13,17 +10,15 @@ the diversity of ethnicities, neighborhoods, as well as the beauty of the victor
 - Local Storage
 
 # APIs
-- MapBox
+- API Seeds
 - Youtube
-- Wikipedia (See geography and location summary section: https://en.wikipedia.org/wiki/Chinatown,_San_Francisco)
-- SFdata.org *
-- Google APIs *
+- Spotify *
 
 # Team Members (Chareen, Maha, Nick) and Tasks
 - HTML Layout, SCSS styling using Bootstrap-SASS, and mobile responsive layout
-- Creating an HTML form with form validation
-- Making a canvas of mapbox and a map overlay of SF neighborhoods, dropping pins, display routes
-- Consuming Youtube API and tiling walking tours
+- Creating an HTML search form with form validation
+- Possibly, consuming Spotify API for more specificity about artist and song.
+- Consuming Youtube API
 - API key administration
 
 # Coding Requirements\
@@ -39,7 +34,7 @@ the diversity of ethnicities, neighborhoods, as well as the beauty of the victor
 - Must have User Input Validation
 
 # Recommended
-- Use Firebase
+- Use Firebase to store favorites and playlists
 - Mobile responsiveness therefore 'squishable'
 - Must have user validation
 
