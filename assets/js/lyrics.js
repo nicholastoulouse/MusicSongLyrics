@@ -1,6 +1,8 @@
 var lyricsURL, lyricsApi, songName_l, artist_l;
 
-lyricsApi = "apikey=WqDoIeBpeU4ukATNPeujatZc7kLftvkhAsogshZ0CX29WAerDXfeNnI6bjZBuzCP";
+
+lyricsApi = "apikey=" + localStorage.getObject("access")['apiSeeds'];
+
 //lyricsURL = "https://orion.apiseeds.com/api/music/lyric/";
 
 $("#submit").on("click", function(){

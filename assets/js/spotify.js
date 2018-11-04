@@ -27,17 +27,18 @@
 //         spotify_uri: 'spotify:track:7xGfFoTpQ2E7fRF5lN10tr',
 //     });
 
-
 // };
 // var songName = "someone+like+you";
 // var api = "547478c12c0741338e5049d6abb2a84e";
 // var queryURL = "https://api.spotify.com/v1/search?q="+songName+"&type=track&api="+api;
-// console.log(queryURL);
 
-fetch("https://api.spotify.com/v1/audio-analysis/6EJiVf7U0p1BBfs0qqeb1f", {
+var url = "https://api.spotify.com/v1/audio-analysis/6EJiVf7U0p1BBfs0qqeb1f";
+var auth = localStorage.getObject("access")['spotify'];
+
+fetch(url, {
   method: "GET",
   headers: {
-    Authorization: `Bearer ${"547478c12c0741338e5049d6abb2a84e"}`     
+    Authorization: `${auth}`     
   }
 })
 .then(response => response.json())
