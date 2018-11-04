@@ -1,6 +1,7 @@
 var youtubeURL, youtubeApi, songName_y, artist_y;
 
-api = "key=" + localStorage.getObject("access")['youtube'];
+var api = "key=" + "AIzaSyAkAY0BtGDAhFm0c8vx-0rMGH1-TMoFzkk";
+// + localStorage.getObject("access")['youtube'];
 
 $("#submit").on("click", function(){
     //console.log("here");
