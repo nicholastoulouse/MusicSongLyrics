@@ -15,54 +15,37 @@
     <script src="./assets/js/config.js"></script>
     <script src="https://code.jquery.com/jquery.js"></script>
     <title>Music, Song, and Lyrics</title>
-    
-    <!-- temporary -->
-    <style> 
-        .youtube {
-            position: relative;
-            padding-bottom: 56.25%; /* 16:9 */
-            padding-top: 25px;
-            height: 0;
-        }
-        .youtube iframe {
-            position: absolute;
-            top: 0;
-            left: 0;
-            width: 100%;
-            height: 100%;
-        }
-
-        .clearfix {
-            clear: both;
-            overflow: auto;
-        }
-        header {
-            border: 1px solid black;
-            margin-bottom: 20px;
-        }
-    </style>
 </head>
 <body>
-<div class="wrapper">
+<div class="container">
     <header>
         <h1>Music, Sound, &amp; Lyrics</h1>
     </header>
     <!-- Bootstap docs: https://getbootstrap.com/docs/4.1/layout/overview/ -->
-    <main id="search"> 
+    <main id="songsearch"> 
         <form role="find a song to sing by a musician">
-            <fieldset>
-                <div id="label1"><label for="artist">Artist Name: </label></div>
-                <div id="input1"><input type="text" name="artist" /></div>
-                <div id="label2"><label for="artist" id="lblsong">Song Name: </label></div>
-                <div id="input2"></div><input type="text" id="song"></div>
-                <div id="search"><button type="button" id ="submit">Submit</button></div>
+            <fieldset class="wrapper form-group">
+                <div id="label0"><label for="user" class="lbl">Your name:</label></div>
+                <div id="input0"><input type="text" id="user" name="user" class="inpt form-control" /></div>
+
+                <div id="label1"><label for="artist" class="lbl">Artist Name:</label></div>
+                <div id="input1"><input type="text" id="artist" name="artist" class="inpt form-control" /></div>
+
+                <div id="label2"><label for="song" id="song" class="lbl">Song Name:</label></div>
+                <div id="input2"><input type="text" id="songName" name="song" class="inpt form-control"></div>
+
+                <div id="search"><button type="button" id="submit" class="btn btn-primary">Submit</button></div>
             </fieldset>
         </form>
-        <section>
-            <article></article>
-        </section>
-        <br/>
+        <!-- <form>
+        <fieldset>
+            Artist:<input type="text" name="artist" class="inpt form-control" />
+            Song:<div id="input2"><input type="text" name="song" class="inpt form-control"></div>
+            <button type="button" id="submit" class="btn btn-primary">Submit</button>
+        </form>
+        </fieldset> -->
     </main>
+    <br />
     <div class="youtube">
             <iframe id="youtube" frameborder="0" allowfullscreen></iframe>
     </div>
@@ -70,8 +53,9 @@
     <div id="lyrics"></div>
 
     <br class="clearfix" />
-
-    <footer><div class="footer__box">Team: Maha, Chareen, Nick</div></footer>
+    <footer>
+            <div class="footer__box">Team: Maha, Chareen, Nick</div>
+    </footer>
 </div>
 
 <!-- ES6 JAVASCRIPTS BELOW-->
