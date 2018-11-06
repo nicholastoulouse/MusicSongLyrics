@@ -57,18 +57,19 @@ fieldset {
     margin: 0 auto;
 }
 .lbl {
+    display: inline;
     border: 1px solid red;
     color: white;
     font-size: 1.5em;
-    padding: 10px;
     text-align: right;
     width: 50%;
 }
 .inpt {
+    display: inline;
     border: 1px solid red;
     text-align: left;
     width: 50%;
-    size: 20;
+    size: 10;
 }
 /* =========================== */
 #label0 {
