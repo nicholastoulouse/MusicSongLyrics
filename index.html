@@ -6,55 +6,42 @@
     <meta http-equiv="X-UA-Compatible" content="ie=edge">
     <!-- FONTS -->
     <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.4.2/css/all.css" integrity="sha384-/rXc/GQVaYpyDdyxK+ecHPVYJSN9bmVFBvjA/9eOB+pb3F2w2N6fc5qB9Ew5yIns" crossorigin="anonymous">
+    <!-- CSS RESET -->
+    <link rel="stylesheet" href="./assets/css/normalize.css">
     <!-- BOOTSTRAP -->
 	<link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.1.3/css/bootstrap.min.css" integrity="sha384-MCw98/SFnGE8fJT3GXwEOngsV7Zt27NXFoaoApmYm81iuXoPkFOJwJ8ERdknLPMO" crossorigin="anonymous">
-    <!-- RESET + CUSTOM -->
-    <link rel="stylesheet" href="./assets/css/normalize.css">
+    <!-- CUSTOM STYLES -->
     <link rel="stylesheet" href="./assets/css/styles.css">
-    
+
     <script src="./assets/js/config.js"></script>
     <script src="https://code.jquery.com/jquery.js"></script>
     <title>Music, Song, and Lyrics</title>
 </head>
 <body>
 <div class="container">
-    <header>
+    <header class="title">
         <h1>Music, Sound, &amp; Lyrics</h1>
     </header>
     <!-- Bootstap docs: https://getbootstrap.com/docs/4.1/layout/overview/ -->
     <main id="songsearch"> 
         <form role="find a song to sing by a musician">
             <fieldset class="wrapper form-group">
-                <div id="label0"><label for="user" class="lbl">Your name:</label></div>
-                <div id="input0"><input type="text" id="user" name="user" class="inpt form-control" /></div>
+                <span id="label0"><label for="user" class="lbl">Your name:</label></span>
+                <span id="input0"><input type="text" id="user" name="user" class="inpt form-control" /></span> <br >
 
-                <div id="label1"><label for="artist" class="lbl">Artist Name:</label></div>
-                <div id="input1"><input type="text" id="artist" name="artist" class="inpt form-control" /></div>
+                <span id="label1"><label for="artist" class="lbl">Artist Name:</label></span>
+                <span id="input1"><input type="text" id="artist" name="artist" class="inpt form-control" /></span> <br >
 
-                <div id="label2"><label for="song" id="song" class="lbl">Song Name:</label></div>
-                <div id="input2"><input type="text" id="songName" name="song" class="inpt form-control"></div>
+                <span id="label2"><label for="song" id="song" class="lbl">Song Name:</label></span>
+                <span id="input2"><input type="text" id="songName" name="song" class="inpt form-control"></span> <br >
 
-                <div id="search"><button type="button" id="submit" class="btn btn-primary">Submit</button></div>
+                <span id="search"><button type="button" id="submit" class="btn btn-primary">Find Song</button></span>
             </fieldset>
         </form>
-        <!-- <form>
-        <fieldset>
-            Artist:<input type="text" name="artist" class="inpt form-control" />
-            Song:<div id="input2"><input type="text" name="song" class="inpt form-control"></div>
-            <button type="button" id="submit" class="btn btn-primary">Submit</button>
-        </form>
-        </fieldset> -->
     </main>
-    <br />
-    <div class="youtube">
-            <iframe id="youtube" frameborder="0" allowfullscreen></iframe>
-    </div>
-    <div id="spotify"></div>
-    <div id="lyrics"></div>
-
     <br class="clearfix" />
     <footer>
-            <div class="footer__box">Team: Maha, Chareen, Nick</div>
+            <div class="footer__box">Berekely Coding Bootcamp App by Maha, Chareen, Nick</div>
     </footer>
 </div>
 
