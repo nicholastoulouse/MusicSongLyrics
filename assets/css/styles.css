@@ -35,12 +35,29 @@ header.title {
     letter-spacing: .4em;
 }
 header.lookup {
-    height: 50px;
+    width: 100%;
+    height: 65px;
     position: fixed;
+    left: 0;
     background-color: lightgray;
     width: 100%;
     vertical-align: middle;
+    padding: 15px;
 }
+header.lookup > label, header.lookup > input[type="text"]{
+    display: inline;
+}
+header.lookup label{
+    margin-right: 7px;
+}
+header.lookup input{
+    margin-right: 15px;
+}
+#greeting {
+    margin-left: 15px;
+    margin-right: 15px;
+}
+
 form {
     margin: 0;
     padding: 0;
@@ -153,6 +170,7 @@ footer {
     height: 60px;
     background-color: black;
 }
+
 /* Small devices (landscape phones, 576px and up), No media query for `xs` (portrait phones, less than 576px) since this is the default in Bootstrap*/
 @media (min-width: 576px) {  }
 

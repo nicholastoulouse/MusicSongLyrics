@@ -14,19 +14,20 @@
     <link rel="stylesheet" href="./assets/css/styles.css">
 
     <script src="./assets/js/config.js"></script>
-    <script src="https://code.jquery.com/jquery.js"></script>
+    <!-- <script src="https://code.jquery.com/jquery.js"></script> -->
     <title>Music, Song, and Lyrics</title>
 </head>
 <body>
 <div class="container">
     <header class="lookup">
         <form role="find a song to sing by a musician">
-        <fieldset class="form-group">
-            <label for="user" class="lbl">Your name:</label><input type="text" id="user" name="user" class="inpt form-control" />
-            <label for="artist" class="lbl">Artist Name:</label><input type="text" id="artist" name="artist" class="inpt form-control" />
-            <label for="song" id="song" class="lbl">Song Name:</label><input type="text" id="songName" name="song" class="inpt form-control">
-            <button type="button" id="submit" class="btn btn-primary" style="display:inline">Find Song</button>
-        </fieldset>
+            <fieldset class="form-group">
+                <!-- <label for="user">Your screen name:</label><input type="text" id="user" name="user" /> -->
+                <span id="greeting">Welcome huwu55!</span>
+                <label for="artist">Artist Name: </label><input type="text" id="artist" name="artist" />
+                <label for="song" id="song">Song Name: </label><input type="text" id="songName" name="song">
+                <button type="button" id="submit" class="btn btn-primary">Find Song</button>
+            </fieldset>
         </form>
     </header>
     <!-- Bootstap docs: https://getbootstrap.com/docs/4.1/layout/overview/ -->
@@ -48,7 +49,7 @@
 <!-- ES6 JAVASCRIPTS BELOW-->
 
 <!-- BOOTSTRAP -->
-<!-- <script src="assets/js/jquery-3.3.1.slim.js"></script> -->
+<script src="assets/js/jquery-3.3.1.slim.js"></script>
 <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.3/umd/popper.min.js" integrity="sha384-ZMP7rVo3mIykV+2+9J3UJ46jBk0WLaUAdn689aCwoqbBJiSnjAK/l8WvCWPIPm49" crossorigin="anonymous"></script>
 <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.1.3/js/bootstrap.min.js" integrity="sha384-ChfqqxuZUCnJSK3+MXmPNIyE6ZbWh2IMqE241rYiqJxyMiZ6OW/JmZQ5stwEULTy" crossorigin="anonymous"></script>
 
