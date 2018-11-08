@@ -1,4 +1,5 @@
 $(document).ready(function(){
+    
     var lyricsAPI, lyricsURL, youtubeAPI, youtubeURL;
 
     // store current username to variable user in order to search from firebase
@@ -75,10 +76,11 @@ $(document).ready(function(){
 
                 var result = response.result;
                 //console.log(result);
-                var lyrics = result.track.text.replace(/\n/g, "<br>");
+                var lyrics = result.track.text; // .replace(/\n/g, "<br>");
                 //console.log(lyrics);
-                var p = $("<p>").html(lyrics);
-                $("#lyrics").append(p);
+                // var p = $("<p>").html(lyrics);
+                // $("#lyrics").append(p);
+                $("#lyrics").html(lyrics);
                 currentSong.song_name = result.track.name;
                 currentSong.artist_name = result.artist.name;
                 currentSong.rawLyrics = lyrics;
@@ -305,5 +307,6 @@ $(document).ready(function(){
 
 */
 
+getLyrics("Mr. Tambourine Man", "The Byrds");
 
 });
