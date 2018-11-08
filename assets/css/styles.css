@@ -195,8 +195,16 @@ section#content {
     margin: 0;
     padding: 0;
 }
-#playlists{
-    border: 1px dotted black;
+#playlists {
+    vertical-align: middle;
+    background-color: darkgray;
+    height: 35px;
+    margin: 0;
+    padding: 5px;
+}
+#nav{
+    margin-left: 20px;
+    width: 300px;
 }
 .thumbnail {
     width: 253px; /* 16:9 ideal ratio*/
@@ -208,12 +216,12 @@ section#content {
     border: 1px dotted black;
 }
 .songwriter {
-    margin-top: 15px;
-    margin-left: 20px;
+    margin-top: 40px;
+    margin-left: 40px;
     font-weight: bold;
 }
 .songname {
-    margin-left: 20px;
+    margin-left: 10px;
     font-style: italic;
 }
 .song > button {

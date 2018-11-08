@@ -46,21 +46,25 @@
 
         <!-- All playlists -->
         <section id="music">
-            <select id="playlists"> <!-- Dynamically generate this list using jQuery -->
-                <option value="***** Favorites *****">Favorites</option>
-                <option value="Easy Listening" selected>Easy Listening</option>
-            </select>
+            <div id="playlists">
+                <select id="nav"> <!-- Dynamically generate this list using jQuery -->
+                    <option value="***** Favorites *****">Favorites</option>
+                    <option value="Easy Listening" selected>Easy Listening</option>
+                </select>
+            </div>
             <article class="song" id="Easy%20Listening">
                 <img class="thumbnail" src="http://lorempixel.com/253/120" />
-                <span class="songwriter">The Byrds</span><p class="songname">Mr. Tambourine Man</p>
+                <span class="songwriter">The Byrds</span><span class="songname">Mr. Tambourine Man</span>
                 <button type="button" value="Add to Playlist">Add to Playlist</button>
                 <button type="button" value="Delete">Remove from playlist</button>
+                <span class="clearfix"></span>
             </article>
             <article class="song" id="Easy%20Listening">
                     <img class="thumbnail" src="http://lorempixel.com/253/120" />
-                    <span class="songwriter">The Byrds</span><p class="songname">Mr. Tambourine Man</p>
+                    <span class="songwriter">The Byrds</span><span class="songname">Mr. Tambourine Man</span>
                     <button type="button" value="Add to Playlist">Add to Playlist</button>
                     <button type="button" value="Delete">Remove from playlist</button>
+                    <span class="clearfix"></span>
             </article>
         </section>
     </main>
