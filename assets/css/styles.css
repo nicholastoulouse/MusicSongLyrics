@@ -156,9 +156,8 @@ span#search {
     grid-column: 1/ span 2;
     grid-row: 4/5;
 }
-/* =========================== */
+/* ========= LYRICS.HTML ========= */
 #media {
-    border: 1px solid magenta;
     width: 1280px;
     margin: 0 auto;
     margin-top: 60px;
@@ -166,13 +165,8 @@ span#search {
 section#content {
     width: 1280px;
     margin: 0 auto;
-    border: 1px solid red;
 }
 .youtube {
-    /* position: relative;
-    padding-bottom: 56.25%; // 16:9
-    padding-top: 25px; */
-    /* position: relative; */
     width: 60%;
     float:left;
     padding: 10px;
@@ -184,21 +178,55 @@ section#content {
     height: 400px;
 }
 #lyrics{
-    /* position: relative; */
+    margin-top: 8px;
     width: 40%;
     text-align: center;
-    height: 420px;
+    height: 403px;
     float:right;
     padding: 5px 20px 15px 20px;
     line-height: 2em;
     font-size: 1.3em;
     overflow: scroll;
 }
+/* ======== PLAYLIST STYLING ======== */
+#music {
+    margin: 0;
+    padding: 0;
+}
+#playlists{
+    border: 1px dotted black;
+}
+.thumbnail {
+    width: 253px; /* 16:9 ideal ratio*/
+    height: 120px;
+    padding: 10px;
+    float: left;
+}
+.song {
+    border: 1px dotted black;
+}
+.songwriter {
+    margin-top: 15px;
+    margin-left: 20px;
+    font-weight: bold;
+}
+.songname {
+    margin-left: 20px;
+    font-style: italic;
+}
+.song > button {
+    float: right;
+    margin-top: 10px;
+    margin-right: 20px;
+    vertical-align: top;
+}
+/* =========================== */
 .clearfix {
     clear: both;
     overflow: auto;
 }
 .footer__box {
+    margin-left: 150px;
     width: 1280px;
     font-family: Snell Roundhand, cursive;
     text-align: center;
