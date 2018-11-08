@@ -14,14 +14,14 @@
     <link rel="stylesheet" href="./assets/css/styles.css">
 
     <script src="./assets/js/config.js"></script>
-    <!-- <script src="https://code.jquery.com/jquery.js"></script> -->
+    <script src="https://code.jquery.com/jquery.js"></script>
     <title>Music, Song, and Lyrics</title>
 </head>
-<body>
-<div class="container">
+<body id="lyrics">
+<div class="mediawrapper">
     <header class="lookup">
         <form role="find a song to sing by a musician">
-            <fieldset class="form-group">
+            <fieldset class="form-group topbar">
                 <!-- <label for="user">Your screen name:</label><input type="text" id="user" name="user" /> -->
                 <span id="greeting">Welcome huwu55!</span>
                 <label for="artist">Artist Name: </label><input type="text" id="artist" name="artist" />
@@ -30,26 +30,42 @@
             </fieldset>
         </form>
     </header>
+    <br />
     <!-- Bootstap docs: https://getbootstrap.com/docs/4.1/layout/overview/ -->
-    <main> 
-        <div class="youtube">
-            <iframe id="youtube" frameborder="0" allowfullscreen></iframe>
-        </div>
-        <div id="lyrics"></div>
-        
-        <br class="clearfix" />
-        <br />
 
+    <main id="media"> 
+        <section id="content">
+            <div class="youtube"><iframe id="youtube" src="https://www.youtube.com/embed/NyOzGPbn2tg" frameborder="0" allowfullscreen></iframe></div>
+            <div id="lyrics">Hey Mister Tambourine Man, play a song for me /n
+                    I'm not sleepy and there ain't no place I'm goin' to /n
+                    Hey Mister Tambourine Man, play a song for me /n
+                    In the jingle jangle morning, I'll come followin' you /n
+                    Take me for a trip upon your magic swirlin' ship /n
+                    All my senses have been stripped /n
+                    And my hands can't feel to grip /n
+                    And my toes too numb to step /n
+                    Wait only for my boot heels to be wanderin' /n
+                    I'm ready to go anywhere I'm ready for to fade /n
+                    On to my own parade cast your dancin' spell my way /n
+                    I promise to go under it /n
+                    Hey Mister Tambourine Man, play a song for me  /n
+                    I'm not sleepy and there ain't no place I'm goin' to /n
+                    Hey Mister Tambourine Man, play a song for me /n
+                    In the jingle jangle morning, I'll come followin' you
+            </div>
+            <br class="clearfix" />
+        </section>      
+        <br />
     </main>
-    <footer>
-            <div class="footer__box">Team: Maha, Chareen, Nick</div>
-    </footer>
-</div>
+
+    <footer><div class="footer__box">Team: Maha, Chareen, Nick</div></footer>
+
+ </div> <!-- .mediawrapper div -->
 
 <!-- ES6 JAVASCRIPTS BELOW-->
 
 <!-- BOOTSTRAP -->
-<script src="assets/js/jquery-3.3.1.slim.js"></script>
+<!-- <script src="assets/js/jquery-3.3.1.slim.js"></script> -->
 <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.3/umd/popper.min.js" integrity="sha384-ZMP7rVo3mIykV+2+9J3UJ46jBk0WLaUAdn689aCwoqbBJiSnjAK/l8WvCWPIPm49" crossorigin="anonymous"></script>
 <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.1.3/js/bootstrap.min.js" integrity="sha384-ChfqqxuZUCnJSK3+MXmPNIyE6ZbWh2IMqE241rYiqJxyMiZ6OW/JmZQ5stwEULTy" crossorigin="anonymous"></script>
 
