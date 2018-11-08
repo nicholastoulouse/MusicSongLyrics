@@ -190,6 +190,8 @@ section#content {
 }
 /* ======== PLAYLIST STYLING ======== */
 #music {
+    height: 100%;
+    min-height: 140px;
     margin: 0;
     padding: 0;
 }
