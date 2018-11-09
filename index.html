@@ -68,18 +68,18 @@
         var artist = $("#artist").val();
         sessionStorage.setItem('artist', artist);
 
-        var pathArray = window.location.pathname.split('/');
-        pathArray.pop(); // remove index.html string
-        pathArray.push("lyrics.html"); // add lyrics
+        // For testing on desktop
+        // var pathArray = window.location.pathname.split('/');
+        // pathArray.pop(); // remove index.html string
+        // pathArray.push("lyrics.html"); // add lyrics
         
-        var url = "https://"; // create new path
-        for (i = 0; i < pathArray.length; i++) {
-            url += "/";
-            url += pathArray[i];
-        }
-        console.log("url ", url);
-        // Use on Github pages: window.location.replace("https://" + url);
-        window.location.replace(url); // "file:/" + url); // FOR TESTING
+        // var url = "https://"; // create new path
+        // for (i = 0; i < pathArray.length; i++) {
+        //     url += "/";
+        //     url += pathArray[i];
+        // }
+        // window.location.replace("file:/" + url);
+        window.location.replace("https://nicholastoulouse.github.io/MusicSongLyrics/lyrics.html");
     });   
 </script>
 
