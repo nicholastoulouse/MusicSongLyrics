@@ -84,9 +84,20 @@
 <!-- <script type="text/javascript" src="./assets/js/common.js"></script> -->
 <!-- <script type="text/javascript" src="./assets/js/lyrics.js"></script>
 <script type="text/javascript" src="./assets/js/youtube.js"></script> -->
+
 <script type="text/javascript" src="./assets/js/backend.js"></script>
-<!-- <script>
-    getLyrics("Mr. Tambourine Man", "The Byrds");
-</script> -->
+<script>
+    $(document).ready(function(){
+        if ( sessionStorage.getItem("username") ) {
+            user = sessionStorage.getItem("username");
+            initializeUser();
+        }
+        if ( sessionStorage.getItem("song") && sessionStorage.getItem("artist") ) {
+            var songName = sessionStorage.getItem("song");
+            var musicianName = sessionStorage.getItem("artist");
+            getLyrics(songName, musicianName);
+        }
+    });
+</script>
 </body>
 </html>
