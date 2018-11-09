@@ -72,14 +72,14 @@
         pathArray.pop(); // remove index.html string
         pathArray.push("lyrics.html"); // add lyrics
         
-        var url = ""; // create new path
+        var url = "https://"; // create new path
         for (i = 0; i < pathArray.length; i++) {
             url += "/";
             url += pathArray[i];
         }
-
+        console.log("url ", url);
         // Use on Github pages: window.location.replace("https://" + url);
-        window.location.replace("https://" + url); // "file:/" + url); // FOR TESTING
+        window.location.replace(url); // "file:/" + url); // FOR TESTING
     });   
 </script>
 
