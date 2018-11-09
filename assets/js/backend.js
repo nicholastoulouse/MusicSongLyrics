@@ -186,15 +186,21 @@ function displayPlaylist(playlistInfo, playlistTitle){
 
 //display all playlists for a user
 //HIGHLIGHT: any changes to playlists: add/delete a playlist, add/delete a song from a playlist will trigger this function
-function displayAllPlaylists(){
+function displayAllPlaylists(returnLists){
+    var playlistArr = [];
     database.ref("users/" + user + "/playlists/").once("value").then(function(snapshot){
         var data = snapshotToArray(snapshot);
         //console.log(data[0].name);
         //displayPlaylist(data[0]);
         for(var i = 0; i < data.length; i++){
-            displayPlaylist(data[i], data[i].name);
+            if (returnLists !== undefined) {
+                playlistArr.push(data[i].name);
+            } else {
+                displayPlaylist(data[i], data[i].name);
+            }
         }
     });
+    return playlistArr;
 }
 
 // add playlist skeleton in database, if playlist name exist, do nothing
@@ -261,8 +267,6 @@ function deleteSong(plname, song){
     displayAllPlaylists();
 }
 
-
-
 /////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
 ///////////////for testing code only////////////////////////////////////////////////////////
 /////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
@@ -303,4 +307,3 @@ $("#submit").on("click", function(){
 });
 
 */
-

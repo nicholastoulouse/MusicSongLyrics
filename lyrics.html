@@ -146,6 +146,21 @@
 
             // TBC...
             modal.find('.modal-title').text('Add song ' + songName + ' to a playlist.');
+            
+            // get all playlists
+            var lists = displayAllPlaylists(true);
+            console.log("Playlists array: ", lists);
+
+            var radioGroup = $("<radiogroup>");
+            
+            lists.forEach(playlist => { 
+                let radio = $("<radio>").attr("lbl", playlist).attr("id", playlist);
+                radio.appendTo(radioGroup);
+            });
+            
+            $(".modal-body").append(radioGroup).append("<button type='button' value='Add' class='del btn btn-primary' />");
+
+            // Generate 
             modal.find('.modal-body').text("<p>The day is mine by Sean Connery.</p>");
             // modal.find('.modal-body input').val(recipient)
             
