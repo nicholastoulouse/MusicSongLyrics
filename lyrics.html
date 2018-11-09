@@ -28,7 +28,7 @@
                 <span id="greeting">Welcome huwu55!</span>
                 <label for="artist">Artist Name: </label><input type="text" id="artist" name="artist" />
                 <label for="song" id="song">Song Name: </label><input type="text" id="songName" name="song">
-                <button type="button" id="submit" class="btn btn-primary">Find Song</button>
+                <button type="button" id="submit" class="newsearch btn btn-primary">Find Song</button>
             </fieldset>
         </form>
     </header>
@@ -120,6 +120,12 @@
             var musicianName = sessionStorage.getItem("artist");
             getLyrics(songName, musicianName);
         }
+
+        $('.newsearch').on("click", function() {
+            var songName = $('#songName').val();
+            var musicianName = $('#artist').val();
+            getLyrics(songName, musicianName);
+        });
 
         // DELETE A SONG FROM A PLAYLIST
         $(".del").on("click", function(){
