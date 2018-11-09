@@ -161,7 +161,7 @@ function initializeSelection(){
             option.attr("value", data[i].name).text(data[i].name);
             $("#selectPlaylist").append(option);
         }
-        //console.log(getPlaylistNames());
+        console.log("Upon initialization, playlist names are ", getPlaylistNames());
     });
 }
 
