@@ -54,16 +54,18 @@
             </div>
             <article class="song" id="Easy%20Listening">
                 <img class="thumbnail" src="http://lorempixel.com/253/120" />
-                <span class="songwriter">The Byrds</span><span class="songname">Mr. Tambourine Man</span>
-                <button type="button" value="Add to Playlist">Add to Playlist</button>
-                <button type="button" value="Delete">Remove from playlist</button>
+                <span class="songwriter">The Byrds</span>
+                <span class="songname">Mr. Tambourine Man</span>
+                <button type="button" value="Add to Playlist" class="add2PL btn btn-primary" data-toggle="modal" data-target="#add2playlistModal" data-whatever="songNameHere" >Add to Playlist</button>
+                <button type="button" value="Delete" class="del btn btn-primary">Remove from playlist</button>
                 <span class="clearfix"></span>
             </article>
             <article class="song" id="Easy%20Listening">
                     <img class="thumbnail" src="http://lorempixel.com/253/120" />
-                    <span class="songwriter">The Byrds</span><span class="songname">Mr. Tambourine Man</span>
-                    <button type="button" value="Add to Playlist">Add to Playlist</button>
-                    <button type="button" value="Delete">Remove from playlist</button>
+                    <span class="songwriter">The Byrds</span>
+                    <span class="songname">Mr. Tambourine Man</span>
+                    <button type="button" value="Add to Playlist" class="add2PL btn btn-primary" data-toggle="modal" data-target="#add2playlistModal" data-whatever="Mr. Tambourine Man" >Add to Playlist</button>
+                    <button type="button" value="Delete" class="del btn btn-primary">Remove from playlist</button>
                     <span class="clearfix"></span>
             </article>
         </section>
@@ -97,6 +99,23 @@
             var musicianName = sessionStorage.getItem("artist");
             getLyrics(songName, musicianName);
         }
+
+        // DELETE A SONG FROM A PLAYLIST
+        $(".del").on("click", function(){
+            // get the playlist name
+            var playlistName = $( this ).parent().attr("id");
+            var songTitle = $( this ).siblings([".songname"]).text();
+            console.log("Song title to delete is: ", songTitle);
+            deleteSong(playlistName, songTitle);
+        });
+
+        // MODAL
+        $(".add2PL").on("click", function(){
+            var playlistName = $( this ).parent().attr("id");
+            console.log("The playlist name is ", playlistName);
+            
+        });
+        
     });
 </script>
 </body>
