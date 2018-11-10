@@ -61,7 +61,6 @@ header.lookup input{
     margin-left: 15px;
     margin-right: 15px;
 }
-
 form {
     margin: 0;
     padding: 0;
@@ -113,7 +112,7 @@ input[type="text"] {
 #greeting {
     font-size: 1.55em;
     font-weight: bolder;
-    font-family: Snell Roundhand, cursive;
+    font-family: Snell Roundhand, Brush Script MT, Verdana cursive;
     padding-right: 30px;
 }
 /* =========================== */
