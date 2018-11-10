@@ -259,7 +259,19 @@ footer {
 .thumbnail:hover, .songwriter:hover, .songname:hover {
     cursor: pointer;
 }
-
+#favorite {
+    font-size: 2em;
+    color: red;
+    /* padding: 2px; */
+    /* position:relative;
+    top: 10px; */
+    /* margin-left: 5px;
+    margin-right: 20px; */
+}
+i.fa-trash-alt {
+    margin-left: 10px;
+    display: inline;
+}
 /* Small devices (landscape phones, 576px and up), No media query for `xs` (portrait phones, less than 576px) since this is the default in Bootstrap*/
 @media (min-width: 576px) {  }
 
