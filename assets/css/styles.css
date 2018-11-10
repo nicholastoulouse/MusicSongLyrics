@@ -156,7 +156,6 @@ span#search {
     width: 1280px;
     margin: 0 auto;
     margin-top: 60px;
-    overflow: scroll;
 }
 section#content {
     width: 1280px;
@@ -185,16 +184,16 @@ section#content {
     overflow: scroll;
 }
 /* ======== PLAYLIST STYLING ======== */
-#music {
+#myMusic {
     height: 100%;
     min-height: 140px;
     margin: 0;
     padding: 0;
 }
-#music::after {
+#myMusic::after {
     padding-bottom: 60px;
 }
-#playlists {
+#plDropdownMenu {
     vertical-align: middle;
     background-color: darkgray;
     height: 35px;
@@ -206,7 +205,7 @@ section#content {
     width: 300px;
 }
 .thumbnail {
-    width: 253px; /* 16:9 ideal ratio*/
+    width: 213px; /* 16:9 ideal ratio*/
     height: 120px;
     padding: 10px;
     float: left;
@@ -257,6 +256,9 @@ footer {
     position: fixed;
     bottom: 0;
 
+}
+.thumbnail:hover, .songwriter:hover, .songname:hover {
+    cursor: pointer;
 }
 
 /* Small devices (landscape phones, 576px and up), No media query for `xs` (portrait phones, less than 576px) since this is the default in Bootstrap*/

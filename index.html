@@ -23,7 +23,14 @@
         <h1>Music, Song, &amp; Lyrics</h1>
     </header>
     <!-- Bootstap docs: https://getbootstrap.com/docs/4.1/layout/overview/ -->
-    <main id="songsearch"> 
+    <main id="songsearch">
+
+        <div class="validation modal fade bd-example-modal-sm" tabindex="-1" role="dialog" aria-labelledby="validation" aria-hidden="true">
+            <div class="modal-dialog modal-sm">
+                <div class="modal-content">Please sign-in with a username and make a valid musician and song search.</div>
+            </div>
+        </div> 
+
         <form role="find a song to sing by a musician">
             <fieldset class="wrapper form-group">
                 <span id="label0"><label for="user" class="lbl">Your name:</label></span>
@@ -57,29 +64,28 @@
     $("#submit").on("click", function(event){
 
         event.preventDefault();
-        sessionStorage.clear();
+  
+        if ( sessionStorage.getItem("song") && sessionStorage.getItem("artist") ){
+            // $('')
+        } 
 
         var username = $("#user").val();
-        sessionStorage.setItem('username', username);
-
         var song = $("#songName").val();
-        sessionStorage.setItem('song', song);
-
         var artist = $("#artist").val();
-        sessionStorage.setItem('artist', artist);
 
-        // For testing on desktop
-        // var pathArray = window.location.pathname.split('/');
-        // pathArray.pop(); // remove index.html string
-        // pathArray.push("lyrics.html"); // add lyrics
-        
-        // var url = "https://"; // create new path
-        // for (i = 0; i < pathArray.length; i++) {
-        //     url += "/";
-        //     url += pathArray[i];
-        // }
-        // window.location.replace("file:/" + url);
-        window.location.replace("https://nicholastoulouse.github.io/MusicSongLyrics/lyrics.html");
+        if ( username === "" || artist === "" || song === "") {
+            $('#validation').modal('show');
+        } else if ( sessionStorage.getItem("song") && sessionStorage.getItem("artist") ) {
+            $("#songName").val(sessionStorage.getItem("song"));
+            $("#artist").val(sessionStorage.getItem("artist"));
+        } else {
+            sessionStorage.clear();
+            sessionStorage.setItem('username', username);
+            sessionStorage.setItem('artist', artist);
+            sessionStorage.setItem('song', song);
+            window.location.replace("lyrics.html");
+        }
+        // window.location.replace("https://nicholastoulouse.github.io/MusicSongLyrics/lyrics.html");
     });   
 </script>
 

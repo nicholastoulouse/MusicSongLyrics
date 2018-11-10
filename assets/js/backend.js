@@ -87,6 +87,8 @@ function getLyrics(songName, artist){
         function(){
             //IMPORTANT: please edit this portion of code to style html if lyrics not found
             $("#lyrics").text("Lyrics: No Record");
+            // $("#youtube").empty();
+            $("#youtube").attr("src", "about: blank");
             currentSong.song_name = "";
             currentSong.artist_name = "";
             currentSong.videoURL = "";
@@ -199,21 +201,23 @@ function displayPlaylist(plname){
             var songs = data[1];
             var songArr = Object.keys(songs);
 
-            var songinfoDiv, sname, aname, thumbnail, img, info;
+            var songinfoDiv, sname, aname, thumbnail, img, artist_span, song_span;
             for(var i = 0; i < songArr.length - 1; i++){
                 sname = songs[songArr[i]].songName;
                 aname = songs[songArr[i]].artist;
-                info = $("<p>");
-                info.text(aname + " - " + sname);
+                artist_span = $("<span>");
+                artist_span.attr("class", "songwriter").text(aname).attr("onclick", "getLyrics(" + "'" + sname + "','" + aname + "');");
+                song_span = $("<span>");
+                song_span.attr("class", "songname").text(sname).attr("onclick", "getLyrics(" + "'" + sname + "','" + aname + "');");
                 thumbnail = songs[songArr[i]].thumbnailPicURL;
                 console.log(sname, aname, thumbnail);
                 img = $("<img>");
-                img.attr("src", thumbnail).attr("width", 320).attr("height", 180);
-                songinfoDiv = $("<div>");
-                songinfoDiv.attr("class", "songinfo")
-                    .attr("onclick", "getLyrics(" + "'" + sname + "','" + aname + "');");
-                songinfoDiv.append(img);
-                songinfoDiv.append(info);
+                img.attr("src", thumbnail).attr("class", "thumbnail");
+                songinfoDiv = $("<article>");
+                songinfoDiv.attr("class", "song clearfix");
+                songinfoDiv.append(img).attr("onclick", "getLyrics(" + "'" + sname + "','" + aname + "');");
+                songinfoDiv.append(artist_span);
+                songinfoDiv.append(song_span);
                 playlistDiv.append(songinfoDiv);
             }
         }
@@ -295,18 +299,6 @@ function deleteSong(plname, song){
             displayPlaylist(plname);
         });
 }
-
-//triggered when user selects a playlist
-$("#selectPlaylist").change(function(){
-    displayPlaylist($(this).val());
-    if($(this).val() !== "empty"){
-        currentPlaylist = $(this).val();
-    }
-    else{
-        currentPlaylist = "";
-        console.log("Please selecte a playlist");
-    }
-});
 
 // var lyricsAPI, lyricsURL, youtubeAPI, youtubeURL;
 

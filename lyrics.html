@@ -25,7 +25,7 @@
         <form role="find a song to sing by a musician">
             <fieldset class="form-group topbar">
                 <!-- <label for="user">Your screen name:</label><input type="text" id="user" name="user" /> -->
-                <span id="greeting">Welcome huwu55!</span>
+                <span id="greeting">Music, Song, and Lyrics</span>
                 <label for="artist">Artist Name: </label><input type="text" id="artist" name="artist" />
                 <label for="song" id="song">Song Name: </label><input type="text" id="songName" name="song">
                 <button type="button" id="submit" class="newsearch btn btn-primary">Find Song</button>
@@ -36,6 +36,7 @@
     <!-- Bootstap docs: https://getbootstrap.com/docs/4.1/layout/overview/ -->
 
     <main id="media"> 
+        <!-- Welcome huwu55 OR sign in link -->
         <section id="content">
             <div class="youtube"><iframe id="youtube" frameborder="0" allowfullscreen></iframe></div>
             <textarea rows="20" cols="1" id="lyrics" disabled readonly>
@@ -64,47 +65,25 @@
                 </div>
             </div>
         </div>
-        <select id="selectPlaylist">
+        
         <!-- All playlists -->
-        <section id="music">
-            <div id="playlists">
-                <select id="selectPlaylist"> <!-- Dynamically generate this list using jQuery -->
-                    <option value="***** Favorites *****">Favorites</option>
-                    <option value="Easy Listening" selected>Easy Listening</option>
+        <section id="myMusic">
+            <div id="plDropdownMenu">
+                <select id="selectPlaylist">
+                    <!-- All Playlists -->
                 </select>
             </div>
-            <article class="song" id="Easy%20Listening">
-                <img class="thumbnail" src="http://lorempixel.com/253/120" />
-                <span class="songwriter">The Byrds</span>
-                <span class="songname">Mr. Tambourine Man</span>
-                <button type="button" value="Add to Playlist" class="add2PL btn btn-primary" data-toggle="modal" data-target="#addSongToPlaylist" data-whatever="songNameHere" >Add to Playlist</button>
-                <button type="button" value="Delete" class="del btn btn-primary">Remove from playlist</button>
-                <span class="clearfix"></span>
-            </article>
-            <article class="song" id="Easy%20Listening">
+            <div id="playlist">
+
+            <!-- <article class="song" id="Easy%20Listening">
                     <img class="thumbnail" src="http://lorempixel.com/253/120" />
                     <span class="songwriter">The Byrds</span>
                     <span class="songname">Mr. Tambourine Man</span>
                     <button type="button" value="Add to Playlist" class="add2PL btn btn-primary" data-toggle="modal" data-target="#addSongToPlaylist" data-whatever="Mr. Tambourine Man" >Add to Playlist</button>
                     <button type="button" value="Delete" class="del btn btn-primary">Remove from playlist</button>
                     <span class="clearfix"></span>
-            </article>
-            <article class="song" id="Easy%20Listening">
-                    <img class="thumbnail" src="http://lorempixel.com/253/120" />
-                    <span class="songwriter">The Byrds</span>
-                    <span class="songname">Mr. Tambourine Man</span>
-                    <button type="button" value="Add to Playlist" class="add2PL btn btn-primary" data-toggle="modal" data-target="#addSongToPlaylist" data-whatever="songNameHere" >Add to Playlist</button>
-                    <button type="button" value="Delete" class="del btn btn-primary">Remove from playlist</button>
-                    <span class="clearfix"></span>
-                </article>
-                <article class="song" id="Easy%20Listening">
-                        <img class="thumbnail" src="http://lorempixel.com/253/120" />
-                        <span class="songwriter">The Byrds</span>
-                        <span class="songname">Mr. Tambourine Man</span>
-                        <button type="button" value="Add to Playlist" class="add2PL btn btn-primary" data-toggle="modal" data-target="#addSongToPlaylist" data-whatever="Mr. Tambourine Man" >Add to Playlist</button>
-                        <button type="button" value="Delete" class="del btn btn-primary">Remove from playlist</button>
-                        <span class="clearfix"></span>
-                </article>
+            </article> -->
+            </div>
         </section>
         <span style="padding: 60px"></span>
     </main>
@@ -128,6 +107,8 @@
 <script type="text/javascript" src="./assets/js/backend.js"></script>
 <script>
     $(document).ready(function(){
+
+        // Incoming Session Login & Search Data
         if ( sessionStorage.getItem("username") ) {
             user = sessionStorage.getItem("username");
             initializeUser();
@@ -137,14 +118,35 @@
             var musicianName = sessionStorage.getItem("artist");
             getLyrics(songName, musicianName);
         }
-
+        // On-page Search, User presumed logged in
         $('.newsearch').on("click", function() {
-            var songName = $('#songName').val();
-            var musicianName = $('#artist').val();
-            getLyrics(songName, musicianName);
+            var isLoggedIn = sessionStorage.getItem("username");
+            if (isLoggedIn) {
+                var songName = $('#songName').val();
+                var musicianName = $('#artist').val();
+                getLyrics(songName, musicianName);
+            } else {
+                var songName = $('#songName').val();
+                var musicianName = $('#artist').val();
+
+                sessionStorage.setItem('artist', artist);
+                sessionStorage.setItem('song', songName);
+            }
         });
 
-        // DELETE A SONG FROM A PLAYLIST
+        //triggered when user selects a playlist
+        $("#selectPlaylist").change(function(){
+            displayPlaylist($(this).val());
+            if($(this).val() !== "empty"){
+                currentPlaylist = $(this).val();
+            }
+            else{
+                currentPlaylist = "";
+                console.log("Please selecte a playlist");
+            }
+        });
+
+        // DELETE A SONG FROM A PLAYLIST (not tested)
         $(".del").on("click", function(){
             // get the playlist name
             var playlistName = $( this ).parent().attr("id");
@@ -153,12 +155,6 @@
             deleteSong(playlistName, songTitle);
         });
 
-        // ADD SONG TO PLAYLIST MODAL
-        // $(".add2PL").on("click", function(){
-        //     var playlistName = $( this ).parent().attr("id");
-        //     console.log("The playlist name is ", playlistName);
-            
-        // });
         $('#addSongToPlaylist').on('show.bs.modal', function (event) {
             var button = $(event.relatedTarget) // Button that triggered the modal
             var songName = button.data('whatever') // Extract info from data-* attributes
