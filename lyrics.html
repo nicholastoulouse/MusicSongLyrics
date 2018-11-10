@@ -241,7 +241,7 @@
 
         $("#media").on("click", "#addSong2pl", function(){
 
-            // var regex = /[\.\$\[\]\#\/]/g;
+            // var regex = /[\.\"\$\[\]\#\/]/g;
             // get playlist name
             var plname = $('input[name="playlist"]:checked').val();
 
@@ -278,7 +278,7 @@
         });
         // Create new playlist
         $("#createNewPL").on("click", function(){
-            var regex = /[\.\$\[\]\#\/]/g;
+            var regex = /[\.\"\$\[\]\#\/]/g;
             var newPLname = $(".input-group > input").val().trim();
             if(newPLname === ""){
                 $('#validPlaylistName').modal();
