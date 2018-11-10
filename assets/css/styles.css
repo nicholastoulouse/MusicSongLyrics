@@ -195,11 +195,12 @@ section#content {
 #plDropdownMenu {
     vertical-align: middle;
     background-color: darkgray;
-    height: 35px;
+    height: 48px;
     margin: 0;
     padding: 5px;
 }
 #selectPlaylist {
+    display: inline-block;
     margin-left: 20px;
     width: 300px;
 }
@@ -260,7 +261,10 @@ footer {
     cursor: pointer;
 }
 #favorite {
-    font-size: 2em;
+    height: 22px;
+    padding: 0;
+    margin: 0;
+    font-size: 1.6em;
     color: red;
     /* padding: 2px; */
     /* position:relative;
@@ -269,9 +273,20 @@ footer {
     margin-right: 20px; */
 }
 i.fa-trash-alt {
-    margin-left: 10px;
+    font-size: 1.3em;
+    margin: 9px 0 0 7px;
     display: inline;
 }
+.plsradios {
+    margin-right: 10px;
+}
+.mb-3 {
+    margin-right: 15px;
+    float:right;
+    width: 500px;
+    size: 90;
+}
+
 /* Small devices (landscape phones, 576px and up), No media query for `xs` (portrait phones, less than 576px) since this is the default in Bootstrap*/
 @media (min-width: 576px) {  }
 

@@ -182,7 +182,7 @@ function getPlaylistNames(){
 function deleteButton(){
     var button = $("<button>");
     button.attr("type", "button")
-        .attr("class", "del btn btn-primary")
+        .attr("class", "del btn btn-dark")
         .attr("value", "Delete")
         .text("Remove");
 

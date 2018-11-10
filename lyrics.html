@@ -29,7 +29,7 @@
                 <span id="greeting">Music, Song, and Lyrics</span>
                 <label for="artist">Artist Name: </label><input type="text" id="artist" name="artist" />
                 <label for="song" id="song">Song Name: </label><input type="text" id="songName" name="song">
-                <button type="button" id="submit" class="newsearch btn btn-primary">Find Song</button>
+                <button type="button" id="submit" class="newsearch btn btn-dark">Find Song</button>
             </fieldset>
         </form>
     </header>
@@ -42,7 +42,8 @@
             <div class="youtube">
                 <iframe id="youtube" frameborder="0" allowfullscreen></iframe>
                 <button type="button" value="Add to Favorites" class="fav btn btn-light" data-target="#addSong"><i id="favorite" class="far fa-heart"></i></button>
-                <button type="button" value="Add to Playlist" class="add2PL btn btn-primary" data-toggle="modal" data-target="#addSongToPlaylist" >Add to Playlist</button>
+                <button type="button" value="Add to Playlist" class="add2PL btn btn-dark" data-toggle="modal" data-target="#addSongToPlaylist" >Add to Playlist</button>
+                
             </div>
             <textarea rows="20" cols="1" id="lyrics" disabled readonly>
             </textarea>
@@ -51,20 +52,20 @@
         </section>      
 
         <!-- VALIDATION -->
-        <div class="modal" tabindex="-1" id="validation" role="dialog">
+        <div class="modal" tabindex="-1" id="validPlaylistName" role="dialog">
                 <div class="modal-dialog" role="document">
                     <div class="modal-content">
                     <div class="modal-header">
-                        <h5 class="modal-title">Oops!</h5>
+                        <h5 class="modal-title">Invalid Playlist Name</h5>
                         <button type="button" class="close" data-dismiss="modal" aria-label="Close">
                         <span aria-hidden="true">&times;</span>
                         </button>
                     </div>
                     <div class="modal-body">
-                        <p>Please enter a user name without special characters .$[]#/ and enter musician and song.</p>
+                        <p>Please enter a playlist name with no special characters .$[]#/.</p>
                     </div>
                     <div class="modal-footer">
-                        <button type="button" class="btn btn-secondary" data-dismiss="modal">Ok</button>
+                        <button type="button" class="btn btn-dark" data-dismiss="modal">Ok</button>
                     </div>
                     </div>
                 </div>
@@ -76,7 +77,7 @@
                 <div class="modal-content">
                 <div class="modal-header">
                     <h5 class="modal-title" id="exampleModalLongTitle">Modal title</h5>
-                    <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                    <button type="button" class="close btn-dark" data-dismiss="modal" aria-label="Close">
                     <span aria-hidden="true">&times;</span>
                     </button>
                 </div>
@@ -87,6 +88,7 @@
                 </div>
                 </div>
             </div>
+            <!-- CREATE A NEW PLAYLIST IN MODAL -->
         </div>
         <!-- MODAL END  -->
         
@@ -103,7 +105,7 @@
                 </div>
                 <div class="modal-footer">
                     <button type="button" id="deletePL" class="btn btn-primary" data-dismiss="modal">Confirm</button>
-                    <button type="button" class="btn btn-secondary" data-dismiss="modal">Cancel</button>
+                    <button type="button" class="btn btn-dark" data-dismiss="modal">Cancel</button>
                 </div>
                 </div>
             </div>
@@ -112,10 +114,17 @@
         <!-- All playlists -->
         <section id="myMusic">
             <div id="plDropdownMenu">
-                <select id="selectPlaylist">
+                <select id="selectPlaylist" class="form-control">
                     <!-- All Playlists -->
                 </select>
                 <i class="far fa-trash-alt"></i>
+                <!-- Create a new playlist -->
+                <div class="input-group mb-3">
+                    <input type="text" class="form-control" placeholder="Enter playlist name" aria-label="Recipient's username" aria-describedby="basic-addon2">
+                    <div class="input-group-append">
+                        <button class="btn btn-dark" id="createNewPL" type="button">Create new playlist</button>
+                    </div>
+                </div>
             </div>
             <div id="playlist">
             <!-- <article class="song" id="Easy%20Listening">
@@ -202,14 +211,26 @@
             var plists = getPlaylistNames();
             $(".modal-body").empty();
 
+            if (plists.length === 0){
+                $(".modal-body").text("You have not made any playlists yet.")
+            } else {
             plists.forEach((list, count) => {
-                list.padStart(3, " ");
+                list.toString().padStart(3, " ");
                 idVal = "r" + count;
-                radioGroup = $("<input>").attr({type: "radio", id: idVal, value: list, name: "playlist"});
-                plLabel = $("<label>").attr("for", idVal).text(list);
+                radioGroup = $("<input>").attr({type: "radio", class: "plsradios", id: idVal, value: list, name: "playlist"});
+                plLabel = $("<label>").attr("for", idVal).text(list).css("margin-left", "8px");
                 newline = $("<br />");
-                $(".modal-body").append(radioGroup).append(plLabel).append(plLabel).append(newline);
+                $(".modal-body").append(radioGroup).append(plLabel).append(newline);
+                // if( count === plists.length - 1 ){
+                //     idVal = "r" + plists.length;
+                //     var createNewPL = $("<input>").attr({type: "radio", class: "plsradios", id: idVal, value: "create", name: "playlist"});
+                //     var name = $("<input>").attr({type: "text", id: "newPLname", size: "300", placeholder: "Enter playlist name"}).css("margin-left", "8px");
+                //     name.attr("id", "newPLname");
+                //     console.log("TESTING NAME HERE ", name);
+                //     $(".modal-body").append(createNewPL).append(name);
+                // }
             });
+            }
         });
 
         $('#addSongToPlaylist').on('show.bs.modal', function (event) {
@@ -218,12 +239,30 @@
             modal.find('.modal-title').text('Add favorite song ' + songName + ' to a playlist.');
         })
 
-        $('#addSong2pl').on("click", function() {
+        $("#media").on("click", "#addSong2pl", function(){
+
+            // var regex = /[\.\$\[\]\#\/]/g;
             // get playlist name
             var plname = $('input[name="playlist"]:checked').val();
-            console.log("added song to playlist ", plname);
-            addSong(plname, currentSong);
-            $("#selectPlaylist").val(plname);
+
+            // var selectedPL = $("input[type=radio]:checked");
+            // if( plname === "create" ) {
+            //     var newPLname = $("input#newPLname").val().trim();
+            //     console.log("The new playlist name entered is ", newPLname);
+            //     if(newPLname === ""){
+            //         alert("To create a new playlist, please enter a playlist name.");
+            //     } else if (regex.test(newPLname)) {
+            //         alert("Playlist names cannot contain special characters .$[]#/ so please enter a valid playlist name.");
+            //     } else {
+            //         addPlaylist(newPLname);
+            //         addSong(plname, currentSong);
+            //         $("#selectPlaylist").val(plname);
+            //     }
+            // } else {
+                console.log("added song to playlist ", plname);
+                addSong(plname, currentSong);
+                $("#selectPlaylist").val(plname);
+            // }
         });
 
         // Favorites heart icon hover
@@ -232,7 +271,25 @@
             $(".fa-heart").addClass("fas");
         });
         $(".fav").on("click", function(){
+            // change select to favorites
+            $("#selectPlaylist").attr("selected", "selected");
+            $("#selectPlaylist").val("Favorites");
             addSong("Favorites", currentSong);
+        });
+        // Create new playlist
+        $("#createNewPL").on("click", function(){
+            var regex = /[\.\$\[\]\#\/]/g;
+            var newPLname = $(".input-group > input").val().trim();
+            if(newPLname === ""){
+                $('#validPlaylistName').modal();
+                $(".input-group > input").val("");
+            } else if (regex.test(newPLname)) {
+                $('#validPlaylistName').modal();
+                $(".input-group > input").val("");
+            } else {
+                $(".input-group > input").val("");
+                addPlaylist(newPLname);
+            }
         });
 
         // delete playlist MODAL
@@ -243,12 +300,13 @@
                 var confirmation = $('#deletePlaylist').modal();
             }
         });
-        
+
         // delete playlist CONFIRMATION trigger
         $("#media").on("click", "#deletePL", function(){
             var plname = $("#selectPlaylist").val().trim();
             if(plname !== "empty") deletePlaylist(plname);
         });
+
     });
 </script>
 </body>
