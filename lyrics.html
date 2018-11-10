@@ -149,12 +149,13 @@
         });
 
         // DELETE A SONG FROM A PLAYLIST (not tested)
-        $(".del").on("click", function(){
+        $("#media").on("click", ".del", function(){
             // get the playlist name
-            var playlistName = $( this ).parent().attr("id");
-            var songTitle = $( this ).siblings([".songname"]).text();
-            console.log("Song title to delete is: ", songTitle);
-            deleteSong(playlistName, songTitle);
+            var playlistName = $("#selectPlaylist").val();
+            var songTitle = $( this ).siblings(".songname").text();
+            var artist = $( this ).siblings(".songwriter").text();
+            console.log("Song title to delete is: ", songTitle, artist);
+            deleteSong(playlistName, songTitle, artist);
         });
 
         $('.add2PL').on("click", function(){
