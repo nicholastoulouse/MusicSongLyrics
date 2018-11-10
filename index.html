@@ -24,11 +24,12 @@
     </header>
     <!-- Bootstap docs: https://getbootstrap.com/docs/4.1/layout/overview/ -->
     <main id="songsearch">
-
-        <div class="validation modal fade bd-example-modal-sm" tabindex="-1" role="dialog" aria-labelledby="validation" aria-hidden="true">
+        <!-- VALIDATION -->
+        <div class="modal fade bd-example-modal-sm" id="validation" tabindex="-1" role="dialog" aria-labelledby="validation" aria-hidden="true">
             <div class="modal-dialog modal-sm">
-                <div class="modal-content">Please sign-in with a username and make a valid musician and song search.</div>
+                <div class="modal-content">Please enter a user name without special characters .$[]#/ and enter musician and song.</div>
             </div>
+            <button type="button" class="btn btn-secondary" data-dismiss="modal">Ok</button>
         </div> 
 
         <form role="find a song to sing by a musician">
@@ -65,15 +66,19 @@
 
         event.preventDefault();
   
-        if ( sessionStorage.getItem("song") && sessionStorage.getItem("artist") ){
-            // $('')
-        } 
-
+        // if ( sessionStorage.getItem("song") && sessionStorage.getItem("artist") ){
+        //     // $('')
+        // } 
+        var regex = /[\.\$\[\]\#\/]/g;
         var username = $("#user").val();
         var song = $("#songName").val();
         var artist = $("#artist").val();
 
-        if ( username === "" || artist === "" || song === "") {
+        if (username === "" ||
+            regex.test(username) ||
+            artist === "" ||
+            song === "" ) {
+
             $('#validation').modal('show');
         } else if ( sessionStorage.getItem("song") && sessionStorage.getItem("artist") ) {
             $("#songName").val(sessionStorage.getItem("song"));
