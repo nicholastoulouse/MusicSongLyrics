@@ -23,13 +23,26 @@
     </header>
     <!-- Bootstap docs: https://getbootstrap.com/docs/4.1/layout/overview/ -->
     <main id="songsearch">
+
         <!-- VALIDATION -->
-        <!-- <div class="modal fade bd-example-modal-sm" id="validation" tabindex="-1" role="dialog" aria-labelledby="validation" aria-hidden="true">
-            <div class="modal-dialog modal-sm">
-                <div class="modal-content">Please enter a user name without special characters .$[]#/ and enter musician and song.</div>
+        <div class="modal" tabindex="-1" id="validation" role="dialog">
+            <div class="modal-dialog" role="document">
+                <div class="modal-content">
+                <div class="modal-header">
+                    <h5 class="modal-title">Oops!</h5>
+                    <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                    <span aria-hidden="true">&times;</span>
+                    </button>
+                </div>
+                <div class="modal-body">
+                    <p>Please enter a user name without special characters .$[]#/ and enter musician and song.</p>
+                </div>
+                <div class="modal-footer">
+                    <button type="button" class="btn btn-secondary" data-dismiss="modal">Ok</button>
+                </div>
+                </div>
             </div>
-            <button type="button" class="btn btn-secondary" data-dismiss="modal">Ok</button>
-        </div>  -->
+        </div>
 
         <form role="find a song to sing by a musician">
             <fieldset class="wrapper form-group">
@@ -64,17 +77,31 @@
     $("#submit").on("click", function(event){
 
         event.preventDefault();
-
+        
         var regex = /[\.\$\[\]\#\/]/g;
         var username = $("#user").val();
         var song = $("#songName").val();
         var artist = $("#artist").val();
 
-        sessionStorage.clear();
-        sessionStorage.setItem('username', username);
-        sessionStorage.setItem('artist', artist);
-        sessionStorage.setItem('song', song);
-        window.location.replace("lyrics.html");
+        var artist = $("#artist").val();
+        if (username === "" || song === "" || artist === "") {
+            $('#validation').modal();
+        } else if(regex.test(username)) {
+            $('#validation').modal();
+            $("#user").val("");
+        // EDGE CASE - (PARKING LOT)
+        // } else if ( sessionStorage.getItem(username) === undefined && sessionStorage.getItem(song) && sessionStorage.getItem(artist) ) {
+        //     // lyrics.html redirects to index.html with a song and artist but user is not signed in
+        //     // populate the inputs with song and artist and prompt for sign-in
+        //     $('#artist').val(sessionStorage.getItem(artist));
+        //     $('#songName').val(sessionStorage.getItem(song));
+        } else {
+            sessionStorage.setItem('username', username);
+            sessionStorage.setItem('artist', artist);
+            sessionStorage.setItem('song', song);
+            window.location.replace("lyrics.html");
+        }
+
     });   
 </script>
 
