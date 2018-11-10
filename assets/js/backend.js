@@ -184,7 +184,7 @@ function deleteButton(){
     button.attr("type", "button")
         .attr("class", "del btn btn-primary")
         .attr("value", "Delete")
-        .text("Remove from playlist");
+        .text("Remove");
 
     return button;
 }
