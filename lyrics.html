@@ -158,9 +158,9 @@
 
         $('.add2PL').on("click", function(){
 
-            $(".modal-body").empty();
-            var plists = getPlaylistNames();
             var radioGroup, plLabel, idVal, newline;
+            var plists = getPlaylistNames();
+            $(".modal-body").empty();
 
             plists.forEach((list, count) => {
                 list.padStart(3, " ");
@@ -168,8 +168,6 @@
                 radioGroup = $("<input>").attr({type: "radio", id: idVal, value: list, name: "playlist"});
                 plLabel = $("<label>").attr("for", idVal).text(list);
                 newline = $("<br />");
-                // $("<input>").attr({type: "radio", value: list, name: "playlist"}).text(list);
-                // plradios += "<input type='radio' name='playlist' value='" + list.toString() + "'>" + list.toString() + "<br>";
                 $(".modal-body").append(radioGroup).append(plLabel).append(plLabel).append(newline);
             });
         });

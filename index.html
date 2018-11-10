@@ -65,10 +65,7 @@
     $("#submit").on("click", function(event){
 
         event.preventDefault();
-  
-        // if ( sessionStorage.getItem("song") && sessionStorage.getItem("artist") ){
-        //     // $('')
-        // } 
+
         var regex = /[\.\$\[\]\#\/]/g;
         var username = $("#user").val();
         var song = $("#songName").val();
@@ -79,23 +76,6 @@
             sessionStorage.setItem('artist', artist);
             sessionStorage.setItem('song', song);
             window.location.replace("lyrics.html");
-        // if (username === "" ||
-        //     regex.test(username) ||
-        //     artist === "" ||
-        //     song === "" ) {
-
-        //     // $('#validation').modal('show');
-        // } else if ( sessionStorage.getItem("song") && sessionStorage.getItem("artist") ) {
-        //     $("#songName").val(sessionStorage.getItem("song"));
-        //     $("#artist").val(sessionStorage.getItem("artist"));
-        // } else {
-        //     sessionStorage.clear();
-        //     sessionStorage.setItem('username', username);
-        //     sessionStorage.setItem('artist', artist);
-        //     sessionStorage.setItem('song', song);
-        //     window.location.replace("lyrics.html");
-        // }
-        // window.location.replace("https://nicholastoulouse.github.io/MusicSongLyrics/lyrics.html");
     });   
 </script>
 
