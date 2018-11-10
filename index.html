@@ -13,7 +13,6 @@
     <!-- CUSTOM STYLES -->
     <link rel="stylesheet" href="./assets/css/styles.css">
 
-    <script src="./assets/js/config.js"></script>
     <script src="https://code.jquery.com/jquery.js"></script>
     <title>Music, Song, and Lyrics</title>
 </head>
@@ -71,11 +70,11 @@
         var song = $("#songName").val();
         var artist = $("#artist").val();
 
-            sessionStorage.clear();
-            sessionStorage.setItem('username', username);
-            sessionStorage.setItem('artist', artist);
-            sessionStorage.setItem('song', song);
-            window.location.replace("lyrics.html");
+        sessionStorage.clear();
+        sessionStorage.setItem('username', username);
+        sessionStorage.setItem('artist', artist);
+        sessionStorage.setItem('song', song);
+        window.location.replace("lyrics.html");
     });   
 </script>
 
