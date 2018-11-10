@@ -206,34 +206,36 @@
         });
 
         $('.add2PL').on("click", function(){
+            if($("#youtube").attr("src") !== "about:blank"){
+                console.log($("#youtube").attr("src"));
+                var radioGroup, plLabel, idVal, newline;
+                var plists = getPlaylistNames();
+                $("#add-song-modal").empty();
 
-            var radioGroup, plLabel, idVal, newline;
-            var plists = getPlaylistNames();
-            $("#add-song-modal").empty();
-
-            if (plists.length === 0){
-                $("#add-song-modal").text("You have not made any playlists yet.")
-            } else {
-            plists.forEach((list, count) => {
-                list.toString().padStart(3, " ");
-                idVal = "r" + count;
-                radioGroup = $("<input>").attr({type: "radio", class: "plsradios", id: idVal, value: list, name: "playlist"});
-                plLabel = $("<label>").attr("for", idVal).text(list).css("margin-left", "8px");
-                newline = $("<br />");
-                $("#add-song-modal").append(radioGroup).append(plLabel).append(newline);
-                // if( count === plists.length - 1 ){
-                //     idVal = "r" + plists.length;
-                //     var createNewPL = $("<input>").attr({type: "radio", class: "plsradios", id: idVal, value: "create", name: "playlist"});
-                //     var name = $("<input>").attr({type: "text", id: "newPLname", size: "300", placeholder: "Enter playlist name"}).css("margin-left", "8px");
-                //     name.attr("id", "newPLname");
-                //     console.log("TESTING NAME HERE ", name);
-                //     $(".modal-body").append(createNewPL).append(name);
-                // }
-            });
-            }
+                if (plists.length === 0){
+                    $("#add-song-modal").text("You have not made any playlists yet.")
+                } else {
+                plists.forEach((list, count) => {
+                    list.toString().padStart(3, " ");
+                    idVal = "r" + count;
+                    radioGroup = $("<input>").attr({type: "radio", class: "plsradios", id: idVal, value: list, name: "playlist"});
+                    plLabel = $("<label>").attr("for", idVal).text(list).css("margin-left", "8px");
+                    newline = $("<br />");
+                    $("#add-song-modal").append(radioGroup).append(plLabel).append(newline);
+                    // if( count === plists.length - 1 ){
+                    //     idVal = "r" + plists.length;
+                    //     var createNewPL = $("<input>").attr({type: "radio", class: "plsradios", id: idVal, value: "create", name: "playlist"});
+                    //     var name = $("<input>").attr({type: "text", id: "newPLname", size: "300", placeholder: "Enter playlist name"}).css("margin-left", "8px");
+                    //     name.attr("id", "newPLname");
+                    //     console.log("TESTING NAME HERE ", name);
+                    //     $(".modal-body").append(createNewPL).append(name);
+                    // }
+                });
+                }
         });
 
         $('#addSongToPlaylist').on('show.bs.modal', function (event) {
+            console.log("Youtube src",$("#youtube").attr("src"));
             var button = $(event.relatedTarget) // Button that triggered the modal
             var modal = $(this);
             modal.find('.modal-title').text('Add favorite song ' + songName + ' to a playlist.');
@@ -271,10 +273,12 @@
             $(".fa-heart").addClass("fas");
         });
         $(".fav").on("click", function(){
-            // change select to favorites
-            $("#selectPlaylist").attr("selected", "selected");
-            $("#selectPlaylist").val("Favorites");
-            addSong("Favorites", currentSong);
+            if($("#youtube").attr("src") !== "about:blank"){
+                // change select to favorites
+                $("#selectPlaylist").attr("selected", "selected");
+                $("#selectPlaylist").val("Favorites");
+                addSong("Favorites", currentSong);
+            }
         });
         // Create new playlist
         $("#createNewPL").on("click", function(){
