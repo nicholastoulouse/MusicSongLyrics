@@ -207,12 +207,13 @@
 
         $('.add2PL').on("click", function(){
 
-            var radioGroup, plLabel, idVal, newline;
+            var radioGroup, plLabel, idVal, newline, isMusicVideo;
             var plists = getPlaylistNames();
             $("#add-song-modal").empty();
-	
-	    var isMusicVideo = $(".youtube").children().attr('src');
+	    isMusicVideo = $(".youtube").children().attr('src');
+		
 	    if (isMusicVideo !== 'about:blank'){
+		console.log("music video iframe is not empty and contains a music video");
             	if (plists.length === 0){
                 	$("#add-song-modal").text("You have not made any playlists yet.")
             	} else {
