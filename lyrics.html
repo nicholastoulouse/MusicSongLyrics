@@ -272,9 +272,12 @@
         });
         $(".fav").on("click", function(){
             // change select to favorites
-            $("#selectPlaylist").attr("selected", "selected");
-            $("#selectPlaylist").val("Favorites");
-            addSong("Favorites", currentSong);
+	    var isMusicVideo = $(".youtube").children().attr('src');
+	    if (isMusicVideo !== 'about:blank'){
+            	$("#selectPlaylist").attr("selected", "selected");
+            	$("#selectPlaylist").val("Favorites");
+            	addSong("Favorites", currentSong);
+	    }
         });
         // Create new playlist
         $("#createNewPL").on("click", function(){
