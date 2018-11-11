@@ -210,27 +210,30 @@
             var radioGroup, plLabel, idVal, newline;
             var plists = getPlaylistNames();
             $("#add-song-modal").empty();
-
-            if (plists.length === 0){
-                $("#add-song-modal").text("You have not made any playlists yet.")
-            } else {
-            plists.forEach((list, count) => {
-                list.toString().padStart(3, " ");
-                idVal = "r" + count;
-                radioGroup = $("<input>").attr({type: "radio", class: "plsradios", id: idVal, value: list, name: "playlist"});
-                plLabel = $("<label>").attr("for", idVal).text(list).css("margin-left", "8px");
-                newline = $("<br />");
-                $("#add-song-modal").append(radioGroup).append(plLabel).append(newline);
-                // if( count === plists.length - 1 ){
-                //     idVal = "r" + plists.length;
-                //     var createNewPL = $("<input>").attr({type: "radio", class: "plsradios", id: idVal, value: "create", name: "playlist"});
-                //     var name = $("<input>").attr({type: "text", id: "newPLname", size: "300", placeholder: "Enter playlist name"}).css("margin-left", "8px");
-                //     name.attr("id", "newPLname");
-                //     console.log("TESTING NAME HERE ", name);
-                //     $(".modal-body").append(createNewPL).append(name);
-                // }
-            });
-            }
+	
+	    var isMusicVideo = $(".youtube").children().attr('src');
+	    if (isMusicVideo !== 'about:blank'){
+            	if (plists.length === 0){
+                	$("#add-song-modal").text("You have not made any playlists yet.")
+            	} else {
+            		plists.forEach((list, count) => {
+                		list.toString().padStart(3, " ");
+                		idVal = "r" + count;
+                		radioGroup = $("<input>").attr({type: "radio", class: "plsradios", id: idVal, value: list, name: "playlist"});
+                		plLabel = $("<label>").attr("for", idVal).text(list).css("margin-left", "8px");
+                		newline = $("<br />");
+                		$("#add-song-modal").append(radioGroup).append(plLabel).append(newline);
+                		// if( count === plists.length - 1 ){
+                		//     idVal = "r" + plists.length;
+                		//     var createNewPL = $("<input>").attr({type: "radio", class: "plsradios", id: idVal, value: "create", name: "playlist"});
+                		//     var name = $("<input>").attr({type: "text", id: "newPLname", size: "300", placeholder: "Enter playlist name"}).css("margin-left", "8px");
+                		//     name.attr("id", "newPLname");
+                		//     console.log("TESTING NAME HERE ", name);
+                		//     $(".modal-body").append(createNewPL).append(name);
+                		// }
+            		});
+            	}
+	    }
         });
 
         $('#addSongToPlaylist').on('show.bs.modal', function (event) {
