@@ -20,14 +20,13 @@ youtubeAPI = "key=AIzaSyAkAY0BtGDAhFm0c8vx-0rMGH1-TMoFzkk";
 
 // Initialize Firebase
 var config = {
-    apiKey: "AIzaSyBpjS7ElwdQvULTS6SyUTmlCNo3a83nueg",
-    authDomain: "musicapp-6c52f.firebaseapp.com",
-    databaseURL: "https://musicapp-6c52f.firebaseio.com",
-    projectId: "musicapp-6c52f",
-    storageBucket: "musicapp-6c52f.appspot.com",
-    messagingSenderId: "368421188349"
+    apiKey: "AIzaSyB1Unrk0m192rEGKu6OgrdYhwW5_NQ7RFc",
+    authDomain: "musicapp-a8eb8.firebaseapp.com",
+    databaseURL: "https://musicapp-a8eb8.firebaseio.com",
+    projectId: "musicapp-a8eb8",
+    storageBucket: "musicapp-a8eb8.appspot.com",
+    messagingSenderId: "669778316256"
 };
-
 firebase.initializeApp(config);
 
 var database = firebase.database();
