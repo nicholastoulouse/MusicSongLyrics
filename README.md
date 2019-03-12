@@ -1,6 +1,6 @@
 # Project Description: Music, Song, and Lyrics
 For users who aim to sing more in their domestic life, the app aims to pair artist and song to retrieve music lyrics and a video to encourage users with inspiration to sing along. The app enables users to store favorites in storage in order to create playlists.
-To view the web app in action go to: https://nicholastoulouse.github.io/MusicSongLyrics/lyrics.html Then type username: huwu to see fully populated playlists OR create your own.
+To view the web app in action go to: https://nicholastoulouse.github.io/MusicSongLyrics/lyrics.html Then type the username 'huwu' so as to see fully populated playlists OR create your very own account by choosing a username.
 
 # Technologies
 - HTML5
